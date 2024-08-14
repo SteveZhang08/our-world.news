@@ -73,7 +73,7 @@ ga_domain: https://github.com/SteveZhang08
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Our-World Minecraft 服务器的信息公开网站"
-sidebar-avatar: https://stevezhang08.github.io/web.github.io/img/stevezhang08.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: https://stevezhang08.github.io/our-world.news/img/icon.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
