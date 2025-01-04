@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   install-ruby:
-    runs-on: ubuntu-latest  # 使用 GitHub 托管的 Ubuntu 运行器
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -14,25 +14,34 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libncursesw5-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev libgmp-dev
 
-      - name: Install ruby-build
+      - name: Install rbenv and ruby-build
         run: |
+          git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+          echo '$HOME/.rbenv/bin' >> $GITHUB_PATH
+          echo 'eval "$(rbenv init -)"' >> $GITHUB_ENV
+          mkdir -p ~/.rbenv/plugins
           git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
           echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $GITHUB_ENV
 
+      - name: Verify ruby-build installation
+        run: |
+          if [ -d ~/.rbenv/plugins/ruby-build ]; then
+            echo "ruby-build is installed."
+          else
+            echo "ruby-build is not installed."
+            exit 1
+          fi
+
       - name: Install Ruby 3.1.4 to Tool Cache
         run: |
-          # 定义 Ruby 安装路径
           RUBY_VERSION=3.1.4
           RUBY_ARCH=x64
           RUBY_DIR="/opt/hostedtoolcache/Ruby/${RUBY_VERSION}/${RUBY_ARCH}"
           mkdir -p "${RUBY_DIR}"
-          # 使用 ruby-build 安装 Ruby
           ruby-build "${RUBY_VERSION}" "${RUBY_DIR}"
-          # 标记安装完成
           touch "${RUBY_DIR}.complete"
 
       - name: Verify Ruby installation
         run: |
-          # 将 Ruby 添加到 PATH
           export PATH="${RUBY_DIR}/bin:$PATH"
-          ruby -v  # 验证 Ruby 版本
+          ruby -v
