@@ -14,26 +14,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libncursesw5-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev libgmp-dev
 
-      - name: Install rbenv and ruby-build
+      - name: Install and configure rbenv and ruby-build
         run: |
           git clone https://github.com/rbenv/rbenv.git ~/.rbenv
           echo '$HOME/.rbenv/bin' >> $GITHUB_PATH
-          echo 'eval "$(rbenv init -)"' >> $GITHUB_ENV
           mkdir -p ~/.rbenv/plugins
           git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-          echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $GITHUB_ENV
-
-      - name: Verify ruby-build installation
-        run: |
-          if [ -d ~/.rbenv/plugins/ruby-build ]; then
-            echo "ruby-build is installed."
-          else
-            echo "ruby-build is not installed."
-            exit 1
-          fi
-
-      - name: Install Ruby 3.1.4 to Tool Cache
-        run: |
+          export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+          eval "$(rbenv init -)"
           RUBY_VERSION=3.1.4
           RUBY_ARCH=x64
           RUBY_DIR="/opt/hostedtoolcache/Ruby/${RUBY_VERSION}/${RUBY_ARCH}"
