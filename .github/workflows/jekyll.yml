@@ -33,12 +33,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
-        with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libncursesw5-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev libgmp-dev
+
+      - name: Install rbenv and ruby-build
+        run: |
+          git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+          echo '$HOME/.rbenv/bin' >> $GITHUB_PATH
+          mkdir -p ~/.rbenv/plugins
+          git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+          export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+          eval "$(rbenv init -)"
+          RUBY_VERSION=3.1.4
+          RUBY_DIR="/opt/hostedtoolcache/Ruby/${RUBY_VERSION}/x64"
+          if [ ! -f "${RUBY_DIR}.complete" ]; then
+            ruby-build "${RUBY_VERSION}" "${RUBY_DIR}"
+            touch "${RUBY_DIR}.complete"
+          fi
+          echo "export PATH=\"${RUBY_DIR}/bin:\$PATH\"" >> $GITHUB_ENV
+
+      - name: Install Bundler
+        run: |
+          gem install bundler
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
