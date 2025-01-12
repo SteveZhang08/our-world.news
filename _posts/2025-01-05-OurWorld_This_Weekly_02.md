@@ -6,11 +6,13 @@ date:       2025-01-05 19:30:00
 author:     "Our-World Today"
 header-img: "img/in-post/2025-01-05/head.jpg"
 tags:
-    - 如何投稿
+    - Our-World
+    - OTW周刊
+    - OT
 ---
 
-# Our-World This Weekly 周刊#01-*创刊号*
-*202/8/16 09:30:00*
+# Our-World This Weekly 周刊#02-*第二号*
+*2025/1/5 09:30:00*
 
 ## 声明
 > 本周刊原发行单位<u>**Our-World 日报**</u>将于2024年8月31日与TB CCCP合并为<u>**今日Our-World**</u>*（Our-World Today，简称OT）*。
