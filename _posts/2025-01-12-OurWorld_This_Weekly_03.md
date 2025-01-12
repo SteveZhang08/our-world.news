@@ -2,7 +2,7 @@
 layout:     post
 title:      "Our-World This Weekly 周刊"
 subtitle:   "2025/1/5 - 第二号"
-date:       2025-01-05 19:30:00
+date:       2025-01-12 19:30:00
 author:     "Our-World Today"
 header-img: "img/in-post/2025-01-05/head.jpg"
 tags:
