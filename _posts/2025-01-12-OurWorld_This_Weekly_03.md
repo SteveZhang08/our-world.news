@@ -36,7 +36,7 @@ tags:
 
 1月12日, 以BrightToRise同志主持的建筑组成功的研制出了服务器第一个可行的生产机器"16核刷铁机"一号机研制成功!
 
-[!01](img/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B7%A5%E4%B8%9A%E5%8C%96%E8%AE%AE%E6%A1%88.jpg)
+![01](img/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B7%A5%E4%B8%9A%E5%8C%96%E8%AE%AE%E6%A1%88.jpg)
 
 ### 服务器公布了第二次工业化议案！
 
