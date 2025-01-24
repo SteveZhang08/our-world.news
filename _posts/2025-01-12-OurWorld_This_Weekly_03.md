@@ -65,14 +65,14 @@ NKVD对此一筹莫展，准备讨论地狱交通翻新问题。。这时，GanY
 
 目前项目已经完成了20%！NKVD对此表示祝贺并鼓励！让我们为他加油！！
 
-![02](https://stevezhang08.github.io/ourworld.news/img/in-post/2025-01-16/02.png)
+![02](https://stevezhang08.github.io/our-world.news/img/in-post/2025-01-16/002.png)
 > 此为翻新进展图
 
 ### 服务器有域名了！！
 **喜报!!**
 就在1月12日，Our-World成功的注册了 our-world.fun 域名！！
 
-![03](https://stevezhang08.github.io/ourworld.news/img/in-post/2025-01-16/03.png)
+![03](https://stevezhang08.github.io/our-world.news/img/in-post/2025-01-16/003.png)
 > 此为our-world.fun的ICANN国际顶级域名证书，以证明注册真实性。
 
 内务部对此表示高兴，这为便捷的连接服务器迈出了很大的一步。让我们表示祝贺
